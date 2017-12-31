@@ -44,18 +44,15 @@ class Album extends Component {
       if(!isSameSong) {this.setSong(song); }
       this.play();
     }
-  }
-
-  getClass(song)  {() => {
-    if(this.isPlaying === true){
-      return 'ion-play'
-    } else {
-      return 'ion-pause'
-    }
-  } }
+  };
 
 
   render() {
+    let btnClass = 'ion-play';
+    if(this.state.currentSong.isPlaying === true){
+      btnClass = 'ion-pause';
+    };
+
     return (
       <section className ="album">
         <section id ="album-info">
@@ -81,7 +78,7 @@ class Album extends Component {
                     <td className ="song-actions">
                       <button>
                         <span className="song-number">{index+1}</span>
-                        <span className={this.state.getClass}></span>
+                        <span className={btnClass}></span>
                       </button>
                     </td>
 

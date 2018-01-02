@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import albumData from './../data/albums';
-
+import PlayerBar from './PlayerBar'
 
 
 class Album extends Component {
@@ -48,10 +48,12 @@ class Album extends Component {
 
 
   render() {
-    let btnClass = 'ion-play';
-    if(this.state.currentSong.isPlaying === true){
-      btnClass = 'ion-pause';
-    };
+    let btnClass = '';
+    if(this.state.currentSong.isPlaying){
+     btnClass = 'ion-pause';
+   } else {
+     btnClass = 'ion-play'
+   }
 
     return (
       <section className ="album">
@@ -91,6 +93,7 @@ class Album extends Component {
 
           </tbody>
         </table>
+        <PlayerBar />
       </section>
     );
   }

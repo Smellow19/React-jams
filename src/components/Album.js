@@ -39,16 +39,17 @@ class Album extends Component {
       }
 
     };
+    
     this.audioElement.addEventListener('timeupdate', this.eventListeners.timeupdate);
     this.audioElement.addEventListener('durationchange', this.eventListeners.durationchange);
     this.audioElement.addEventListener('volumechange', this.eventListeners.volumechange);
   }
 
   componentWillUnmount() {
-  this.audioElement.src = null;
-  this.audioElement.removeEventListner('timeupdate', this.eventListeners.timeupdate);
-  this.audioElement.removeEventListner('durationchange', this.eventListeners.durationchange);
-  this.audioElement.removeEventListner('volumechange', this.eventListeners);
+    this.audioElement.src = null;
+    this.audioElement.removeEventListner('timeupdate', this.eventListeners.timeupdate);
+    this.audioElement.removeEventListner('durationchange', this.eventListeners.durationchange);
+    this.audioElement.removeEventListner('volumechange', this.eventListeners);
   }
 
   play() {
